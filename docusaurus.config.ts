@@ -10,15 +10,16 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://guidelines.msml.nl',
+  url: 'https://msmlbv.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/guidelines',
+  baseUrl: '/guidelines/docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'MSMLBV', // Usually your GitHub org/user name.
+  organizationName: 'msmlbv', // Usually your GitHub org/user name.
   projectName: 'guidelines', // Usually your repo name.
+  deploymentBranch: 'master',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

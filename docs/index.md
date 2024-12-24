@@ -65,11 +65,6 @@ MSML’s development stack bridges the power of **Laravel** for backend developm
 
 ## Get Started
 
-To begin, explore the key sections of this guide:
-- [Naming Conventions](guidelines/naming-conventions/overview)
-- [Folder Structure](guidelines/folder-structure)
-- [Coding Best Practices](guidelines/best-practices)
-
 By following these guidelines, you'll help ensure that MSML continues to deliver high-quality software that meets the needs of our clients.
 
 ---
