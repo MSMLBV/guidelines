@@ -76,6 +76,15 @@ const config: Config = {
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
     },
+
+    algolia: {
+      appId: 'YOUR_APP_ID',
+      apiKey: 'YOUR_SEARCH_API_KEY',
+      indexName: 'YOUR_INDEX_NAME',
+      searchParameters: {},
+      searchPagePath: 'search',
+      insights: false,
+    },
     
   } satisfies Preset.ThemeConfig,
 };
