@@ -1,8 +1,10 @@
-# Website
+# MSML Code Guidelines
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This documentation is built using [Docusaurus](https://docusaurus.io/), a modern static website generator designed for creating and managing professional documentation websites.
 
 ### Installation
+
+Install the required dependencies using Yarn:
 
 ```
 $ yarn
@@ -10,32 +12,36 @@ $ yarn
 
 ### Local Development
 
+To start a local development server:
+
 ```
 $ yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command will launch a local development server and open a browser window. Any changes made to the source files will reflect live without restarting the server.
 
 ### Build
+
+To generate static content for deployment:
 
 ```
 $ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+The generated static files will be placed in the `build` directory, ready to be served using any static content hosting service.
 
 ### Deployment
 
-Using SSH:
+#### Using SSH:
 
 ```
 $ USE_SSH=true yarn deploy
 ```
 
-Not using SSH:
+#### Without SSH:
 
 ```
 $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+If using GitHub Pages for hosting, this command streamlines the process of building the site and deploying it to the `gh-pages` branch.
