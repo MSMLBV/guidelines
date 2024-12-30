@@ -20,6 +20,13 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: ['index'], 
     },
+    {
+      type: 'category',
+      label: 'Code Guidelines',
+      items: [
+        'guidelines/laravel-php',
+      ],
+    },
   ],
 };
 
