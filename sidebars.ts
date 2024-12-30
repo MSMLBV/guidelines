@@ -13,23 +13,14 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
   docs: [
     {
       type: 'category',
       label: 'Getting Started',
       collapsed: false,
-      items: ['index'],
+      items: ['index'], 
     },
-    {
-      type: 'category',
-      label: 'Code Guidelines',
-      items: [
-        'guidelines/laravel-php',
-        'guidelines/version-control',
-      ],
-    },
-  ]
+  ],
 };
 
 export default sidebars;

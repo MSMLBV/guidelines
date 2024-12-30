@@ -2,12 +2,8 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
-type FeatureItem = {
-  title: string;
-  description: JSX.Element;
-};
-
-const FeatureList: FeatureItem[] = [
+// Define the feature items for the homepage
+const FeatureList = [
   {
     title: 'Consistent Standards',
     description: (
@@ -37,7 +33,8 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, description}: FeatureItem) {
+// Component to render individual feature items
+function Feature({ title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center padding-horiz--md">
@@ -48,13 +45,14 @@ function Feature({title, description}: FeatureItem) {
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+// Main component to display homepage features
+export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FeatureList.map((feature, index) => (
+            <Feature key={index} {...feature} />
           ))}
         </div>
       </div>

@@ -7,19 +7,17 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'MSML',
   tagline: 'MSML\'s coding standards and best practices',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-32x32.png',
 
   // Set the production url of your site here
   url: 'https://msmlbv.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/guidelines/docs/',
+  baseUrl: '/guidelines/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'msmlbv', // Usually your GitHub org/user name.
-  projectName: 'guidelines', // Usually your repo name.
-  deploymentBranch: 'master',
+  organizationName: 'msmlbv', 
+  projectName: 'guidelines',
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -54,8 +52,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/social-card.png',
     navbar: {
       logo: {
         alt: 'MSML Logo',

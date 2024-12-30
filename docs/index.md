@@ -1,73 +1,42 @@
 ---
-title: Introduction to MSML Code Guidelines
-sidebar_label: Overview
-slug: /
-hide_table_of_contents: true
+title: Welcome
 ---
-
-<head>
-  <title>MSML Code Guidelines: Best Practices for Laravel and React Native</title>
-  <meta
-    name="description"
-    content="MSML Code Guidelines provide standards and best practices for building robust Laravel applications and React Native mobile apps."
-  />
-  <link rel="canonical" href="https://msml-guidelines.com/docs" />
-  <link rel="alternate" href="https://msml-guidelines.com/docs" hreflang="x-default" />
-  <link rel="alternate" href="https://msml-guidelines.com/docs" hreflang="en" />
-  <meta property="og:url" content="https://msml-guidelines.com/docs" />
-</head>
 
 # Welcome to MSML Code Guidelines
 
-MSML Code Guidelines provide developers with a unified set of standards and best practices for building robust **Laravel applications** and **React Native mobile apps**. These guidelines ensure consistency, maintainability, and scalability across all MSML projects.
+Welcome to the **MSML Code Guidelines** documentation! Here, you'll find a comprehensive collection of coding standards, best practices, and processes tailored to how we build and maintain software at MSML.
 
-## Overview
-
-At MSML, we develop cutting-edge Laravel applications and React Native mobile apps. These guidelines help our developers:
-- Maintain consistency across all projects.
-- Collaborate effectively with team members.
-- Write code that is scalable, maintainable, and easy to understand.
-
-### Why Code Guidelines Matter
-
-Standardized coding practices reduce technical debt and streamline development, making it easier for teams to work on shared projects and onboard new developers.
-
-### Focus Areas
-
-- **Cross-Platform Best Practices**: Standards for working with both Laravel and React Native.
-- **Naming Conventions**: Ensuring consistent names for controllers, models, requests, and React Native components.
-- **Folder Structure**: Organizing files and directories for clarity and scalability.
-- **Coding Principles**: Adopting clean coding practices and industry standards.
+Our goal is to ensure consistency, maintainability, and quality across all projects. This documentation is a living resource and will evolve as we grow and adapt to new challenges.
 
 ---
 
-## Goals
+## What You'll Find Here
 
-### Consistency
-Ensure that all code adheres to the same structure, style, and conventions, whether it’s for backend services in Laravel or UI components in React Native.
+### Code Guidelines
+- **Laravel & PHP**: Best practices, coding standards, and architecture guidelines for backend development.
+- **React & React Native**: Best practices and component standards for frontend and mobile applications.
+- **Stylesheets**: Conventions and recommendations for writing clean, maintainable styles.
 
-### Scalability
-Write code that scales with the project, allowing teams to add features or functionality with minimal rework.
+### Deployment
+- Step-by-step guides for deploying applications.
+- CI/CD workflows and troubleshooting tips.
 
-### Maintainability
-Focus on making code easy to read, test, and debug by following best practices and avoiding complexity.
+### Version Control & Git
+- Branching strategies, commit conventions, and versioning practices.
 
----
-
-## Laravel and React Native Integration
-
-MSML’s development stack bridges the power of **Laravel** for backend development with the versatility of **React Native** for mobile apps. Our guidelines provide:
-- A unified structure for API development and mobile app integration.
-- Best practices for managing shared resources and ensuring seamless communication between systems.
-- Clear strategies for naming, structuring, and organizing code.
+### Style Guides
+- Brand standards, design system components, and UX/UI guidelines.
 
 ---
 
-## Get Started
-
-By following these guidelines, you'll help ensure that MSML continues to deliver high-quality software that meets the needs of our clients.
+## How to Use This Documentation
+1. **Navigate**: Use the sidebar to explore different topics.
+2. **Search**: Use the search bar to quickly find specific information.
+3. **Contribute**: If you notice something missing or outdated, feel free to contribute via our [GitHub repository](https://github.com/msmlbv/guidelines).
 
 ---
-## License
 
-MSML Code Guidelines are an open resource designed to help developers create robust software solutions. Contributions and improvements are welcome under the [MIT License](https://opensource.org/licenses/MIT).
+## Feedback & Contributions
+This documentation is a team effort. If you have suggestions or improvements, please reach out or submit a pull request. Together, we can keep these guidelines valuable and relevant.
+
+---
