@@ -62,24 +62,6 @@ export function CustomButton() {
 
 ---
 
-## File Structure
-
-Organize your styles to differentiate between Mantine-specific customizations and general global styles.
-
-### Folder Structure:
-
-- **`mantine`**: Contains theme configuration and component-specific customizations.
-  - `theme.ts`: Centralized theme configuration.
-  - `components`: Mantine component-specific customizations, such as buttons or modals.
-- **`global`**: Holds CSS files for foundational and global styles.
-  - `core`: Resets, typography, and global variables.
-  - `layouts`: Layout-specific styles (e.g., `auth.css`, `dashboard.css`).
-- **`components`**: Custom styles for non-Mantine components.
-  - Reusable elements such as footers or sidebars.
-- **`overrides`**: Global overrides for Mantine styles.
-
----
-
 ## Mantine Theme Configuration
 
 Centralize Mantine theme customizations in a `mantine/theme.ts` file.
@@ -101,7 +83,7 @@ export const theme: MantineThemeOverride = {
 };
 ```
 
-### Usage:
+#### Usage:
 
 ```tsx
 import { MantineProvider } from '@mantine/core';
