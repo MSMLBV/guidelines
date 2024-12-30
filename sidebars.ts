@@ -20,6 +20,13 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: ['index'], 
     },
+    {
+      type: 'category',
+      label: 'Version Control & Git',
+      items: [
+        'version-control',
+      ],
+    },
   ],
 };
 
