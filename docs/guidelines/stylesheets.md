@@ -78,33 +78,6 @@ Organize your styles to differentiate between Mantine-specific customizations an
   - Reusable elements such as footers or sidebars.
 - **`overrides`**: Global overrides for Mantine styles.
 
-### Example Folder Structure:
-
-```
-src/
-├── styles/
-│   ├── mantine/
-│   │   ├── theme.ts
-│   │   ├── components/
-│   │   │   ├── buttonStyles.ts
-│   │   │   ├── modalStyles.ts
-│   ├── global/
-│   │   ├── core/
-│   │   │   ├── reset.css
-│   │   │   ├── variables.css
-│   │   │   ├── typography.css
-│   │   ├── layouts/
-│   │   │   ├── auth.css
-│   │   │   ├── dashboard.css
-│   ├── components/
-│   │   ├── footer.css
-│   │   ├── sidebar.css
-│   ├── overrides/
-│       ├── mantine-overrides.css
-```
-
-This structure separates concerns between Mantine, global styles, and component-specific customizations, making it easier to scale and maintain the project.
-
 ---
 
 ## Mantine Theme Configuration
