@@ -1,38 +1,165 @@
 ---
 title: Stylesheets
 ---
-# CSS/SASS
+# Stylesheet Guidelines
 
-This guide outlines best practices and conventions for structuring and writing CSS/SASS in your projects. Following these guidelines ensures maintainability, scalability, and consistency within your codebase.
-
-## File Structure
-
-Organize your SASS files for modularity and maintainability:
-
-- **Single Import File**: Use a single file to import all styles for Webpack Mix or other bundlers.
-- **File Prefix**: Prefix imported files with an underscore (`_`) to indicate they are partials.
-- **Folder Structure**:
-  - `Core`: Global and foundational styles.
-  - `Layouts`: Page-specific layout styles.
-  - `Elements`: Framework-based components.
-  - `Components`: Custom, reusable components.
+This guide outlines best practices for writing and structuring styles in MSML projects, including our use of Mantine and how it integrates into our CSS/SASS workflow. Following these guidelines ensures maintainability, scalability, and consistency.
 
 ---
 
-## Core
+## CSS Framework and Mantine Integration
 
-The `Core` folder contains global styles, such as resets, typography, and variables.
+We leverage the [Mantine](https://mantine.dev/) library for styling React components. Mantine provides a robust set of components and utilities to streamline the styling process. Its predefined styles, hooks, and theming capabilities reduce repetitive code and enhance development speed.
 
-**Example Imports:**
+### Key Principles:
 
-```css
-@import 'core/animation';
-@import 'core/base';
-@import 'core/typography';
-@import 'core/variables';
+1. **Prioritize Mantine components and hooks:**
+   - Mantine components are optimized for accessibility, responsiveness, and modern design out of the box.
+   - Hooks such as `useMantineTheme` or `useStyles` provide dynamic styling solutions that align with the overall theme.
+   - Using Mantine ensures consistency across the application and reduces the need for custom solutions.
+
+   **Example:**
+   ```tsx
+   import { Button } from '@mantine/core';
+
+   export function SubmitButton() {
+     return <Button>Submit</Button>;
+   }
+   ```
+
+2. **Extend Mantine styles using `styles` or `classNames` props for customization:**
+   - For light modifications, use the `styles` prop.
+   - Use `classNames` when integrating custom CSS from your global or component-specific styles.
+
+3. **Centralize theme overrides to maintain consistency:**
+   - Define all theme customizations in a single configuration file.
+   - Avoid inline or scattered overrides unless absolutely necessary.
+
+4. **Limit direct CSS/SASS usage to global styles or non-Mantine components:**
+   - For layouts, typography, or global resets, direct CSS/SASS is preferred.
+   - Maintain Mantine's default styles for its components whenever possible.
+
+**Example Mantine Customization:**
+
+```tsx
+import { Button } from '@mantine/core';
+
+export function CustomButton() {
+  return (
+    <Button styles={(theme) => ({
+      root: {
+        backgroundColor: theme.colors.brand[6],
+        '&:hover': {
+          backgroundColor: theme.colors.brand[7],
+        },
+      },
+    })}>
+      Click Me
+    </Button>
+  );
+}
 ```
 
-**Base File Example:**
+---
+
+## File Structure
+
+Organize your styles to differentiate between Mantine-specific customizations and general global styles.
+
+### Folder Structure:
+
+- **`mantine`**: Contains theme configuration and component-specific customizations.
+  - `theme.ts`: Centralized theme configuration.
+  - `components`: Mantine component-specific customizations, such as buttons or modals.
+- **`global`**: Holds SASS files for foundational and global styles.
+  - `core`: Resets, typography, and global variables.
+  - `layouts`: Layout-specific styles (e.g., `auth.scss`, `dashboard.scss`).
+- **`components`**: Custom styles for non-Mantine components.
+  - Reusable elements such as footers or sidebars.
+- **`overrides`**: Global overrides for Mantine styles.
+
+### Example Folder Structure:
+
+```
+src/
+├── styles/
+│   ├── mantine/
+│   │   ├── theme.ts
+│   │   ├── components/
+│   │   │   ├── buttonStyles.ts
+│   │   │   ├── modalStyles.ts
+│   ├── global/
+│   │   ├── core/
+│   │   │   ├── _reset.scss
+│   │   │   ├── _variables.scss
+│   │   │   ├── _typography.scss
+│   │   ├── layouts/
+│   │   │   ├── _auth.scss
+│   │   │   ├── _dashboard.scss
+│   ├── components/
+│   │   ├── _footer.scss
+│   │   ├── _sidebar.scss
+│   ├── overrides/
+│       ├── _mantine-overrides.scss
+```
+
+This structure separates concerns between Mantine, global styles, and component-specific customizations, making it easier to scale and maintain the project.
+
+---
+
+## Mantine Theme Configuration
+
+Centralize Mantine theme customizations in a `mantine/theme.ts` file.
+
+**Example Theme Setup:**
+
+```ts
+import { MantineThemeOverride } from '@mantine/core';
+
+export const theme: MantineThemeOverride = {
+  colors: {
+    brand: ['#f0f5ff', '#d6e4ff', '#adc6ff', '#85a5ff', '#597ef7', '#2f54eb', '#1d39c4', '#10239e', '#061178', '#030852'],
+  },
+  primaryColor: 'brand',
+  fontFamily: 'Roboto, sans-serif',
+  headings: {
+    fontFamily: 'Roboto, sans-serif',
+  },
+};
+```
+
+### Usage:
+
+```tsx
+import { MantineProvider } from '@mantine/core';
+import { theme } from './mantine/theme';
+
+function App() {
+  return (
+    <MantineProvider theme={theme}>
+      <YourApp />
+    </MantineProvider>
+  );
+}
+```
+
+---
+
+## Global SASS Styles
+
+### Core Styles
+
+Global styles include resets, typography, and utility variables.
+
+**Example Variables:**
+
+```css
+$font-family-base: 'Roboto', sans-serif;
+$brand-primary: #2f54eb;
+$brand-secondary: #d6e4ff;
+```
+
+**Base Styles:**
 
 ```css
 * {
@@ -45,218 +172,133 @@ html {
 
 body {
   font-family: $font-family-base;
-  font-size: $base-font-size;
-  color: $base-font-color;
-  background: $body-bg;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
 }
 ```
 
----
+### Naming Convention
 
-## Layouts
-
-The `Layouts` folder contains styles for specific layouts, such as login or dashboard pages.
-
-**Example Imports:**
-
-```css
-@import 'layouts/app';
-@import 'layouts/auth';
-```
-
----
-
-## Elements
-
-The `Elements` folder contains styles for framework-based components (e.g., buttons, cards). Override default framework styles here.
-
-**Example Imports:**
-
-```css
-@import 'elements/buttons';
-@import 'elements/cards';
-@import 'elements/dropdowns';
-@import 'elements/primary-button';
-@import 'elements/home-card';
-@import 'elements/table-dropdown';
-```
-
----
-
-## Components
-
-The `Components` folder is for custom, reusable components outside the framework, such as headers, footers, and widgets.
-
-**Example Imports:**
-
-```css
-@import 'components/footer';
-@import 'components/sidebar';
-@import 'components/multiselect';
-@import 'components/v-datepicker';
-```
-
----
-
-## Terminology
-
-### Rule Declaration
-
-A rule declaration specifies a selector and its accompanying properties.
+- Use **dash-cased** class names for global styles.
+- Maintain consistency between Mantine classNames and global SASS styles.
 
 **Example:**
 
 ```css
-.listing {
-  font-size: 18px;
-  line-height: 1.2;
+// Global SASS
+.sidebar {
+  background-color: $brand-secondary;
+  padding: 20px;
 }
+
+// Mantine usage
+<Box className="sidebar">Content</Box>
 ```
 
-### Selectors
+---
 
-Selectors define the elements in the DOM to which styles are applied.
+## Styling Components with Mantine
 
-**Examples:**
+### Using the `styles` Prop
 
-```css
-.my-element-class {
-  /* ... */
-}
+Use the `styles` prop to override Mantine component styles dynamically.
 
-[aria-hidden] {
-  /* ... */
-}
+**Example:**
+
+```tsx
+<Card styles={{
+  root: {
+    backgroundColor: 'lightblue',
+  },
+}}>
+  Card Content
+</Card>
 ```
 
-### Properties
+### Using the `classNames` Prop
 
-Properties specify the styles for selected elements.
+Use `classNames` for applying scoped styles defined in your SASS.
 
 **Example:**
 
 ```css
-background: #f1f1f1;
-color: #333;
+.card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+```
+
+```tsx
+<Card classNames={{ root: 'card' }}>Card Content</Card>
 ```
 
 ---
 
 ## CSS Formatting
 
-- Use **soft tabs** (2 spaces).
-- Prefer **dashes** over camelCase in class names.
-- Avoid **ID selectors**.
-- Separate selectors with new lines.
-- Add a space before `{`.
-- Place closing braces on new lines.
-- Add a space after `:` in property declarations.
-- Always end declarations with a semicolon.
-- Use lowercase shorthand for hex values (e.g., `#fff`).
-- Use `0` without units (e.g., `margin: 0;`).
+Follow standard CSS formatting rules:
 
-**Examples:**
+1. Use **soft tabs** (2 spaces) to ensure consistent indentation. Soft tabs make it easier to visually parse code and avoid alignment issues across different editors.
+2. Separate selectors with new lines to improve readability, especially when multiple selectors target similar styles.
+3. Place closing braces on new lines to clearly define block boundaries, reducing errors in nested or lengthy stylesheets.
+4. Add a space after `:` in property declarations for cleaner visual separation of property names and values.
+5. Always end declarations with a semicolon to avoid accidental errors when adding new properties.
 
-:::warning
+**Example:**
+
 ```css
-.avatar{
-    border-radius:50%;
-    border:2px solid white; 
+.button {
+  border-radius: 4px;
+  background: #2f54eb;
+  color: #fff;
+  padding: 10px 20px;
 }
 ```
-:::
 
-:::tip
-```css
-.avatar {
-  border-radius: 50%;
-  border: 2px solid #fff;
-}
-```
-:::
-
----
-
-## Comments
-
-- Use `//` for line comments in SASS.
-- Avoid end-of-line comments; write comments on separate lines.
-- Use comments to explain non-obvious code (e.g., `z-index` values, compatibility hacks).
+These rules enhance maintainability by keeping the codebase clean, readable, and consistent across all contributors.
 
 ---
 
 ## SASS Guidelines
 
-### Syntax
-
-- Always use `.scss` syntax.
-- Organize declarations logically: `@extend`, `@include`, regular styles, pseudo-classes, and nested selectors.
-
 ### Ordering of Property Declarations
 
-1. **List `@extend(s)` First**
+Follow the recommended order:
 
-   ```css
-   .weather {
-     @extend %module;
-   }
-   ```
-
-2. **List `@include(s)` Next**
-
-   ```css
-   .weather {
-     @extend %module;
-     @include transition(all .3s ease-out);
-   }
-   ```
-
-3. **Add Regular Styles**
-
-   ```css
-   .weather {
-     @extend %module;
-     @include transition(all .3s ease-out);
-     background: $brand-primary;
-   }
-   ```
-
-4. **Pseudo-Classes and Pseudo-Elements**
-
-   ```css
-   .weather {
-     @extend %module;
-     @include transition(all .3s ease-out);
-     &:hover {
-       background: darken($brand-primary, 10%);
-     }
-   }
-   ```
-
-5. **Nested Selectors Last**
-
-   ```css
-   .weather {
-     @extend %module;
-     @include transition(all .3s ease-out);
-     > h3 {
-       @include transform(rotate(90deg));
-       border-bottom: 1px solid #fff;
-     }
-   }
-   ```
-
-### Maximum Nesting
-
-Limit nesting to three levels.
+1. **`@extend`**
+2. **`@include`**
+3. Regular styles
+4. Pseudo-classes
+5. Nested selectors
 
 **Example:**
 
 ```css
-.weather {
-  .cities {
+.button {
+  @extend %base-button;
+  @include transition(all 0.3s);
+  background-color: $brand-primary;
+
+  &:hover {
+    background-color: darken($brand-primary, 10%);
+  }
+
+  > span {
+    font-size: 14px;
+  }
+}
+```
+
+### Nesting
+
+Limit nesting to **three levels**.
+
+**Example:**
+
+```css
+.sidebar {
+  .menu {
     li {
       // Avoid deeper nesting
     }
@@ -264,7 +306,9 @@ Limit nesting to three levels.
 }
 ```
 
-### Nest Your Media Queries
+### Media Queries
+
+Nest media queries within the relevant selectors for better context.
 
 **Example:**
 
@@ -278,30 +322,44 @@ Limit nesting to three levels.
 }
 ```
 
-### Variables
-
-Define reusable variables for colors, fonts, and sizes.
-
-**Example:**
-
-```css
-$brand-primary: #f9f9f9;
-$brand-secondary: #f91829;
-$font-family-base: 'Gilroy', helvetica, arial, sans-serif;
-```
-
-### Naming
-
-- Use **dash-cased** variable names.
-- Prefix file-local variables with `_` (e.g., `$_local-variable`).
+---
 
 ### Colors
 
-Define colors as variables for consistency.
+Define colors as variables for consistency and reuse. Group them logically.
 
 **Example:**
 
 ```css
-$brand-primary: #f9f9f9;
-$brand-secondary: darken($brand-primary, 10%);
+$brand-primary: #2f54eb;
+$brand-secondary: lighten($brand-primary, 20%);
+$neutral-light: #f0f0f0;
+$neutral-dark: #333333;
+```
+
+Use Mantine's `theme.colors` for application-wide colors.
+
+---
+
+## Comments
+
+### CSS and SASS Comments
+
+- Use `//` for inline SASS comments.
+- Avoid end-of-line comments; write comments on separate lines.
+- Use comments to explain non-obvious code (e.g., `z-index` values, compatibility hacks).
+
+**Example:**
+
+```css
+// Resetting styles for consistency
+body {
+  margin: 0;
+  padding: 0;
+}
+
+// Alignment fixes for older browsers
+.grid {
+  display: flex; // IE support fallback
+}
 ```
