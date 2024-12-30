@@ -44,6 +44,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          editUrl: ({locale, versionDocsDirPath, docPath}) => {
+            return `https://github.com/MSMLBV/guidelines/tree/master/${versionDocsDirPath}/${docPath}`;
+          },
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -66,6 +69,12 @@ const config: Config = {
           to: '/docs',
           label: 'Guidelines',
           position: 'left', 
+        },
+        {
+          href: 'https://github.com/msmlbv/guidelines',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
