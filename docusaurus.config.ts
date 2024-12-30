@@ -1,6 +1,8 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import dotenv from 'dotenv';
+dotenv.config()
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -78,12 +80,9 @@ const config: Config = {
     },
 
     algolia: {
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_SEARCH_API_KEY',
-      indexName: 'YOUR_INDEX_NAME',
-      searchParameters: {},
-      searchPagePath: 'search',
-      insights: false,
+      appId: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME,
     },
     
   } satisfies Preset.ThemeConfig,
