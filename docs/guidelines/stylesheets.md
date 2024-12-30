@@ -3,7 +3,7 @@ title: Stylesheets
 ---
 # Stylesheet Guidelines
 
-This guide outlines best practices for writing and structuring styles in MSML projects, including our use of Mantine and how it integrates into our CSS/SASS workflow. Following these guidelines ensures maintainability, scalability, and consistency.
+This guide outlines best practices for writing and structuring styles in MSML projects, including our use of Mantine and how it integrates into our CSS workflow. Following these guidelines ensures maintainability, scalability, and consistency.
 
 ---
 
@@ -35,8 +35,8 @@ We leverage the [Mantine](https://mantine.dev/) library for styling React compon
    - Define all theme customizations in a single configuration file.
    - Avoid inline or scattered overrides unless absolutely necessary.
 
-4. **Limit direct CSS/SASS usage to global styles or non-Mantine components:**
-   - For layouts, typography, or global resets, direct CSS/SASS is preferred.
+4. **Limit direct CSS usage to global styles or non-Mantine components:**
+   - For layouts, typography, or global resets, direct CSS is preferred.
    - Maintain Mantine's default styles for its components whenever possible.
 
 **Example Mantine Customization:**
@@ -71,9 +71,9 @@ Organize your styles to differentiate between Mantine-specific customizations an
 - **`mantine`**: Contains theme configuration and component-specific customizations.
   - `theme.ts`: Centralized theme configuration.
   - `components`: Mantine component-specific customizations, such as buttons or modals.
-- **`global`**: Holds SASS files for foundational and global styles.
+- **`global`**: Holds CSS files for foundational and global styles.
   - `core`: Resets, typography, and global variables.
-  - `layouts`: Layout-specific styles (e.g., `auth.scss`, `dashboard.scss`).
+  - `layouts`: Layout-specific styles (e.g., `auth.css`, `dashboard.css`).
 - **`components`**: Custom styles for non-Mantine components.
   - Reusable elements such as footers or sidebars.
 - **`overrides`**: Global overrides for Mantine styles.
@@ -90,17 +90,17 @@ src/
 │   │   │   ├── modalStyles.ts
 │   ├── global/
 │   │   ├── core/
-│   │   │   ├── _reset.scss
-│   │   │   ├── _variables.scss
-│   │   │   ├── _typography.scss
+│   │   │   ├── reset.css
+│   │   │   ├── variables.css
+│   │   │   ├── typography.css
 │   │   ├── layouts/
-│   │   │   ├── _auth.scss
-│   │   │   ├── _dashboard.scss
+│   │   │   ├── auth.css
+│   │   │   ├── dashboard.css
 │   ├── components/
-│   │   ├── _footer.scss
-│   │   ├── _sidebar.scss
+│   │   ├── footer.css
+│   │   ├── sidebar.css
 │   ├── overrides/
-│       ├── _mantine-overrides.scss
+│       ├── mantine-overrides.css
 ```
 
 This structure separates concerns between Mantine, global styles, and component-specific customizations, making it easier to scale and maintain the project.
@@ -145,7 +145,7 @@ function App() {
 
 ---
 
-## Global SASS Styles
+## Global CSS Styles
 
 ### Core Styles
 
@@ -154,9 +154,11 @@ Global styles include resets, typography, and utility variables.
 **Example Variables:**
 
 ```css
-$font-family-base: 'Roboto', sans-serif;
-$brand-primary: #2f54eb;
-$brand-secondary: #d6e4ff;
+:root {
+  --font-family-base: 'Roboto', sans-serif;
+  --brand-primary: #2f54eb;
+  --brand-secondary: #d6e4ff;
+}
 ```
 
 **Base Styles:**
@@ -171,7 +173,7 @@ html {
 }
 
 body {
-  font-family: $font-family-base;
+  font-family: var(--font-family-base);
   font-size: 16px;
   color: #333;
   background-color: #f9f9f9;
@@ -181,18 +183,18 @@ body {
 ### Naming Convention
 
 - Use **dash-cased** class names for global styles.
-- Maintain consistency between Mantine classNames and global SASS styles.
+- Maintain consistency between Mantine classNames and global CSS styles.
 
 **Example:**
 
 ```css
-// Global SASS
+/* Global CSS */
 .sidebar {
-  background-color: $brand-secondary;
+  background-color: var(--brand-secondary);
   padding: 20px;
 }
 
-// Mantine usage
+/* Mantine usage */
 <Box className="sidebar">Content</Box>
 ```
 
@@ -218,7 +220,7 @@ Use the `styles` prop to override Mantine component styles dynamically.
 
 ### Using the `classNames` Prop
 
-Use `classNames` for applying scoped styles defined in your SASS.
+Use `classNames` for applying scoped styles defined in your CSS.
 
 **Example:**
 
@@ -260,14 +262,14 @@ These rules enhance maintainability by keeping the codebase clean, readable, and
 
 ---
 
-## SASS Guidelines
+## CSS Guidelines
 
 ### Ordering of Property Declarations
 
 Follow the recommended order:
 
-1. **`@extend`**
-2. **`@include`**
+1. **Global resets and variables**
+2. Layout styles
 3. Regular styles
 4. Pseudo-classes
 5. Nested selectors
@@ -276,12 +278,10 @@ Follow the recommended order:
 
 ```css
 .button {
-  @extend %base-button;
-  @include transition(all 0.3s);
-  background-color: $brand-primary;
+  background-color: var(--brand-primary);
 
   &:hover {
-    background-color: darken($brand-primary, 10%);
+    background-color: #1d39c4;
   }
 
   > span {
@@ -300,7 +300,7 @@ Limit nesting to **three levels**.
 .sidebar {
   .menu {
     li {
-      // Avoid deeper nesting
+      /* Avoid deeper nesting */
     }
   }
 }
@@ -331,10 +331,12 @@ Define colors as variables for consistency and reuse. Group them logically.
 **Example:**
 
 ```css
-$brand-primary: #2f54eb;
-$brand-secondary: lighten($brand-primary, 20%);
-$neutral-light: #f0f0f0;
-$neutral-dark: #333333;
+:root {
+  --brand-primary: #2f54eb;
+  --brand-secondary: lighten(#2f54eb, 20%);
+  --neutral-light: #f0f0f0;
+  --neutral-dark: #333333;
+}
 ```
 
 Use Mantine's `theme.colors` for application-wide colors.
@@ -343,23 +345,23 @@ Use Mantine's `theme.colors` for application-wide colors.
 
 ## Comments
 
-### CSS and SASS Comments
+### CSS Comments
 
-- Use `//` for inline SASS comments.
+- Use `/* */` for inline and block CSS comments.
 - Avoid end-of-line comments; write comments on separate lines.
 - Use comments to explain non-obvious code (e.g., `z-index` values, compatibility hacks).
 
 **Example:**
 
 ```css
-// Resetting styles for consistency
+/* Resetting styles for consistency */
 body {
   margin: 0;
   padding: 0;
 }
 
-// Alignment fixes for older browsers
+/* Alignment fixes for older browsers */
 .grid {
-  display: flex; // IE support fallback
+  display: flex;
 }
 ```
