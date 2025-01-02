@@ -26,6 +26,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'guidelines/laravel-php',
         'guidelines/react-native',
+        'guidelines/stylesheets',
       ]
     },
     {
