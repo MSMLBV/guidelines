@@ -25,6 +25,7 @@ const sidebars: SidebarsConfig = {
       label: 'Code Guidelines',
       items: [
         'guidelines/laravel-php',
+        'guidelines/react-native',
       ],
     },
   ],
