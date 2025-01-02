@@ -1,6 +1,8 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import dotenv from 'dotenv';
+dotenv.config()
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -34,7 +36,7 @@ const config: Config = {
     mermaid: true,
   },
   
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: [],
 
   presets: [
     [
@@ -42,6 +44,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          editUrl: ({locale, versionDocsDirPath, docPath}) => {
+            return `https://github.com/MSMLBV/guidelines/tree/master/${versionDocsDirPath}/${docPath}`;
+          },
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -65,16 +70,30 @@ const config: Config = {
           label: 'Guidelines',
           position: 'left', 
         },
+        {
+          href: 'https://github.com/msmlbv/guidelines',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+        },
       ],
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.palenight,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: ['php'],
     },
-
     mermaid: {
-      theme: {light: 'neutral', dark: 'dark'},
+      theme: {
+        light: 'neutral', 
+        dark: 'dark'
+      },
+    },
+    algolia: {
+      appId: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME,
+      contextualSearch: true,
     },
     
   } satisfies Preset.ThemeConfig,

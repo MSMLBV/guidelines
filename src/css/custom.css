@@ -1,30 +1,65 @@
 /**
- * any css included here will be global. the classic template
- * bundles infima by default. infima is a css framework designed to
- * work well for content-centric websites.
+ * Global CSS for Docusaurus
  */
+ @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-/* you can override the default infima variables here. */
-:root {
-  --ifm-color-primary: #0077b8; /* primary */
-  --ifm-color-primary-dark: #005e94; /* slightly darker */
-  --ifm-color-primary-darker: #004970; /* darker */
-  --ifm-color-primary-darkest: #003754; /* darkest */
-  --ifm-color-primary-light: #2a91cc; /* slightly lighter */
-  --ifm-color-primary-lighter: #58addf; /* lighter */
-  --ifm-color-primary-lightest: #86caef; /* lightest */
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.15);
-}
-
-/* for readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #00a1d6;
-  --ifm-color-primary-dark: #0086b3;
-  --ifm-color-primary-darker: #006d8f;
-  --ifm-color-primary-darkest: #00546b;
-  --ifm-color-primary-light: #33b6e3;
-  --ifm-color-primary-lighter: #66caf0;
-  --ifm-color-primary-lightest: #99defc;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
-}
+ :root {
+   /* Color Palette */
+   --ifm-color-primary: #3880ff; /* Primary blue */
+   --ifm-color-primary-dark: #3171e0; /* Darker shade of primary */
+   --ifm-color-primary-darker: #1e5dba; /* Darkest shade of primary */
+   --ifm-color-primary-light: #4c8dff; /* Lighter shade of primary */
+   --ifm-color-primary-lighter: #62a4ff; /* Even lighter */
+   --ifm-color-primary-lightest: #e1f0ff; /* Lightest blue for backgrounds */
+ 
+   --ifm-color-secondary: #5260ff; /* Secondary color (for accents) */
+   --ifm-color-text: #222428; /* Dark text */
+   --ifm-color-text-light: #92949c; /* Muted text */
+   --ifm-color-background: #ffffff; /* Light background */
+   --ifm-color-background-dark: #f8f9fa; /* Slightly darker background */
+   --ifm-color-code-block: #f3f3f3; /* Light background for code blocks */
+ 
+   /* Typography */
+   --ifm-font-family-base: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+     "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+ 
+   /* Font Sizes */
+   --ifm-font-size-base: 16px; /* Base font size */
+   --ifm-font-size-sm: 14px; /* Small text */
+   --ifm-font-size-md: 18px; /* Medium text */
+   --ifm-font-size-lg: 20px; /* Large text */
+   --ifm-font-size-xl: 24px; /* Extra-large text */
+   --ifm-font-size-xxl: 32px; /* Largest heading text */
+   --ifm-line-height-base: 1.5;
+ 
+   /* Code Block */
+   --ifm-code-font-size: 85%;
+   --docusaurus-highlighted-code-line-bg: rgba(56, 128, 255, 0.1);
+   --ifm-code-background-color: var(--ifm-color-code-block);
+ }
+ 
+ [data-theme="dark"] {
+   /* Dark Mode Colors */
+   --ifm-color-primary: #00dfb1; /* Vibrant green */
+   --ifm-color-primary-dark: #00b892; /* Slightly darker green */
+   --ifm-color-primary-darker: #008f72; /* Darkest green */
+   --ifm-color-primary-light: #33f1ca; /* Lighter green */
+   --ifm-color-primary-lighter: #66f5d8; /* Even lighter */
+   --ifm-color-primary-lightest: #ccfff0; /* Lightest green for backgrounds */
+ 
+   --ifm-color-text: #f4f5f8; /* Light text */
+   --ifm-color-text-light: #dcdde1; /* Muted text */
+   --ifm-color-background: #1c1c1e; /* Dark background */
+   --ifm-color-background-dark: #2c2c2e; /* Slightly lighter dark background */
+   --ifm-color-code-block: #2a2a2c; /* Dark code block background */
+ 
+   --docusaurus-highlighted-code-line-bg: rgba(0, 223, 177, 0.1); /* Highlighted code line */
+ }
+ 
+ .navbar__link:hover,
+ .navbar__link--active,
+ .menu__link--active,
+ .menu__link--active:hover {
+   color: var(--ifm-color-text);
+ }
+ 
