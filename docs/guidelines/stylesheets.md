@@ -5,8 +5,6 @@ title: Stylesheets
 
 This guide outlines best practices for writing and structuring styles in MSML projects, including our use of Mantine and how it integrates into our CSS workflow. Following these guidelines ensures maintainability, scalability, and consistency.
 
----
-
 ## CSS Framework and Mantine Integration
 
 We leverage the [Mantine](https://mantine.dev/) library for styling React components. Mantine provides a robust set of components and utilities to streamline the styling process. Its predefined styles, hooks, and theming capabilities reduce repetitive code and enhance development speed.
@@ -60,8 +58,6 @@ export function CustomButton() {
 }
 ```
 
----
-
 ## Mantine Theme Configuration
 
 Centralize Mantine theme customizations in a `mantine/theme.ts` file.
@@ -97,8 +93,6 @@ function App() {
   );
 }
 ```
-
----
 
 ## Global CSS Styles
 
@@ -153,8 +147,6 @@ body {
 <Box className="sidebar">Content</Box>
 ```
 
----
-
 ## Styling Components with Mantine
 
 ### Using the `styles` Prop
@@ -190,8 +182,6 @@ Use `classNames` for applying scoped styles defined in your CSS.
 <Card classNames={{ root: 'card' }}>Card Content</Card>
 ```
 
----
-
 ## CSS Formatting
 
 Follow standard CSS formatting rules:
@@ -214,8 +204,6 @@ Follow standard CSS formatting rules:
 ```
 
 These rules enhance maintainability by keeping the codebase clean, readable, and consistent across all contributors.
-
----
 
 ## CSS Guidelines
 
@@ -277,8 +265,6 @@ Nest media queries within the relevant selectors for better context.
 }
 ```
 
----
-
 ### Colors
 
 Define colors as variables for consistency and reuse. Group them logically.
@@ -295,8 +281,6 @@ Define colors as variables for consistency and reuse. Group them logically.
 ```
 
 Use Mantine's `theme.colors` for application-wide colors.
-
----
 
 ## Comments
 

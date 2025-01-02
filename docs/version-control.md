@@ -6,8 +6,6 @@ description: Writing history
 
 Our projects utilize Git, primarily with repositories hosted on GitHub. With a small team and most projects involving fewer than three collaborators, these guidelines ensure smooth and efficient version control practices.
 
----
-
 ## Repo Naming Conventions
 
 ### Site Repositories
@@ -39,7 +37,6 @@ Our projects utilize Git, primarily with repositories hosted on GitHub. With a s
 :::tip[Good]
   - **Good**: `laravel-backup`, `spoon`
 :::
----
 
 ## Branches
 
@@ -80,8 +77,6 @@ Our projects utilize Git, primarily with repositories hosted on GitHub. With a s
 4. Create a pull request to merge the branch into `master`.
 5. Reviewers validate the changes and approve the pull request.
 
----
-
 ## Release Branches
 
 ### Purpose
@@ -106,8 +101,6 @@ Our projects utilize Git, primarily with repositories hosted on GitHub. With a s
 - `release/v2.0.0`
 - `release/v1.5.3`
 
----
-
 ## Pull Requests
 
 ### Purpose
@@ -124,8 +117,6 @@ Our projects utilize Git, primarily with repositories hosted on GitHub. With a s
   - **Example**: "Fix: Update cart functionality (MSML-456)"
 - Ensure all CI checks pass before merging.
 - Tag relevant team members for review.
-
----
 
 ## Merging and Rebasing
 
@@ -150,8 +141,6 @@ Our projects utilize Git, primarily with repositories hosted on GitHub. With a s
      git fetch origin
      git rebase origin/master
      ```
-
----
 
 ## Commits
 

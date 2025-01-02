@@ -6,8 +6,6 @@ title: React Native
 
 Welcome to the **React Native Guidelines**! This document outlines the best practices and conventions for developing React Native applications at MSML.
 
----
-
 ## Project Structure
 Organize files and folders consistently for better maintainability. The structure should match the following:
 
@@ -60,8 +58,6 @@ App/
 - **App.js**: The entry point of the application.
 - **ReactotronConfig.js**: Configuration for Reactotron debugging.
 
----
-
 ## General Principles
 - **Consistency**: Follow a consistent structure and style across projects. Use ESLint and Prettier to enforce coding standards, and align with shared code formatting rules defined in the project.
 - **Modularity**: Write reusable components and keep business logic separate from UI logic. Use well-documented libraries such as lodash for utility functions.
@@ -72,8 +68,6 @@ App/
 - **Performance**: Optimize for smooth animations and fast rendering.
 - **Accessibility**: Ensure that applications are usable for everyone.
 - **Scalability**: Design with future growth in mind, ensuring the app can handle increasing complexity and data.
-
----
 
 ## State Management
 Use **MobX State Tree (MST)** for state management.
@@ -86,8 +80,6 @@ Use **MobX State Tree (MST)** for state management.
 ### Additional State Tools
 - **Realm**: Use for local data persistence and offline-first functionality when working with structured data.
 - **React Query**: Best for handling server-side state and API data fetching with caching capabilities.
-
----
 
 ## Navigation
 Use **React Navigation v6** for managing navigation.
@@ -158,8 +150,6 @@ Use **React Navigation v6** for managing navigation.
 - Leverage deep linking for external navigation needs.
 - Use dynamic params for passing data between screens efficiently.
 
----
-
 ## Styling
 Use a consistent styling approach.
 
@@ -181,8 +171,6 @@ Use a consistent styling approach.
 - Define default spacing, colors, and typography in constants.
 - Implement dark and light mode themes for better user experience.
 - Follow platform-specific design guidelines (Material Design for Android, Human Interface Guidelines for iOS).
-
----
 
 ## Components
 
@@ -232,8 +220,6 @@ Use a consistent styling approach.
 - Avoid inline styles in components.
 - Document prop types with TypeScript for better type safety and IDE support.
 
----
-
 ## Debugging
 Use **Reactotron** for debugging during development.
 
@@ -252,7 +238,5 @@ Use **Reactotron** for debugging during development.
    ```javascript
    console.tron.log('Debug Info');
    ```
-
----
 
 This document serves as a comprehensive guide for React Native development at MSML. Refer to specific project requirements for any additional conventions or practices.
