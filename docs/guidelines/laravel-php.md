@@ -687,8 +687,6 @@ php artisan usersCreateLocal
 ```
 :::
 
----
-
 ### Structure
 
 An Artisan command must always have a clear description and signature:
@@ -728,7 +726,7 @@ public function handle(): void
 }
 ```
 
----
+
 
 ### Iterative Processing
 
@@ -787,7 +785,7 @@ Route::get('about-us', 'OpenSourceController@index');
 ```
 :::
 
----
+
 
 ### Route Names
 
@@ -805,7 +803,7 @@ Route::get('open-source', [OpenSourceController::class, 'index'])->name('open-so
 ```
 :::
 
----
+
 
 ### HTTP Verb Placement
 
@@ -825,7 +823,7 @@ Route::name('openSource')->get([OpenSourceController::class, 'index']);
 ```
 :::
 
----
+
 
 ### Route Parameters
 
@@ -843,7 +841,7 @@ Route::get('news/{news_item}', [NewsItemsController::class, 'index']);
 ```
 :::
 
----
+
 
 ### URL Formatting
 
@@ -885,7 +883,7 @@ Route::get('/open-source', [OpenSourceController::class, 'index']);
 ```
 :::
 
----
+
 
 ### Route Structure
 
@@ -923,7 +921,7 @@ When operations on a resource are independent of its parent, flatten the route s
 ```
 :::
 
----
+
 
 ### Additional Guidelines
 - **HTTP Verbs:** Use proper HTTP verbs for route actions (e.g., `GET`, `POST`, `PUT`, `DELETE`).
@@ -1163,7 +1161,7 @@ Naming classes consistently improves code readability, maintainability, and redu
     **`App\Transformers\Users\UserTransformer`**  
     A transformer for formatting user data.
 
----
+
 
 ### Request Classes
 
