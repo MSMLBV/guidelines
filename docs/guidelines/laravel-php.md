@@ -23,7 +23,7 @@ Consistent styling ensures readability and maintainability across the codebase.
 - Use **PascalCase** for class names.
 - Use **UPPER_SNAKE_CASE** for constants.
 
-:::tip[Good]
+:::tip[good]
 ```php
 $activeUsersCount = 42;
 class UserManagement {}
@@ -31,7 +31,7 @@ define('MAX_LOGIN_ATTEMPTS', 3);
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 $active_users_count = 42;
 class user_management {}
@@ -43,11 +43,11 @@ const maxLoginAttempts = 3;
 
 Avoid using the `final` keyword unless absolutely necessary. Flexibility in extending functionality is preferred.
 
-:::tip[Good]
+:::tip[good]
 ```php
 class UserService
 {
-    public function activateUser(User $user)
+    public function activateUser(User $user): void
     {
         $user->activate();
     }
@@ -55,11 +55,11 @@ class UserService
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 final class UserService
 {
-    public function activateUser(User $user)
+    public function activateUser(User $user): void
     {
         $user->activate();
     }
@@ -71,13 +71,13 @@ final class UserService
 
 When using nullable types, prefer the short nullable syntax.
 
-:::tip[Good]
+:::tip[good]
 ```php
 public ?int $userId;
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 public int | null $userId;
 ```
@@ -87,7 +87,7 @@ public int | null $userId;
 
 Indicate explicitly when a method does not return a value by using the `void` return type.
 
-:::tip[Good]
+:::tip[good]
 ```php
 public function sendNotification(): void
 {
@@ -96,7 +96,7 @@ public function sendNotification(): void
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 public function sendNotification()
 {
@@ -109,7 +109,7 @@ public function sendNotification()
 
 Always type properties whenever possible. Avoid using docblocks to specify types unless absolutely necessary.
 
-:::tip[Good]
+:::tip[good]
 ```php
 class Order
 {
@@ -119,7 +119,7 @@ class Order
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 class Order
 {
@@ -135,7 +135,7 @@ class Order
 
 Values in enums should follow **PascalCase** naming conventions.
 
-:::tip[Good]
+:::tip[good]
 ```php
 enum PaymentStatus {
     case Pending;
@@ -145,7 +145,7 @@ enum PaymentStatus {
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 enum PaymentStatus {
     case pending;
@@ -159,7 +159,7 @@ enum PaymentStatus {
 
 Avoid redundant docblocks. Use them only when they provide additional context or clarity beyond type hints.
 
-:::tip[Good]
+:::tip[good]
 ```php
 class Product
 {
@@ -174,7 +174,7 @@ class Product
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 class Product
 {
@@ -193,7 +193,7 @@ class Product
 
 When working with arrays or collections, include key and value types in the docblocks to improve clarity and IDE support.
 
-:::tip[Good]
+:::tip[good]
 ```php
 /**
  * @param array<int, User> $users
@@ -207,7 +207,7 @@ function notifyUsers(array $users): void
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 /**
  * @param array $users
@@ -637,17 +637,17 @@ When adding config values for a specific service, add them to the `services` con
 // Adding credentials to `config/services.php`
 return [
     'ses' => [
-        'key' => env('SES_AWS_ACCESS_KEY_ID'),
-        'secret' => env('SES_AWS_SECRET_ACCESS_KEY'),
-        'region' => env('SES_AWS_DEFAULT_REGION', 'us-east-1'),
+        'key'       => env('SES_AWS_ACCESS_KEY_ID'),
+        'secret'    => env('SES_AWS_SECRET_ACCESS_KEY'),
+        'region'    => env('SES_AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     
     'github' => [
-        'username' => env('GITHUB_USERNAME'),
-        'token' => env('GITHUB_TOKEN'),
-        'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => env('GITHUB_CALLBACK_URL'),
+        'username'          => env('GITHUB_USERNAME'),
+        'token'             => env('GITHUB_TOKEN'),
+        'client_id'         => env('GITHUB_CLIENT_ID'),
+        'client_secret'     => env('GITHUB_CLIENT_SECRET'),
+        'redirect'          => env('GITHUB_CALLBACK_URL'),
         'docs_access_token' => env('GITHUB_ACCESS_TOKEN'),
     ],
     
@@ -675,13 +675,13 @@ return [
 ### Naming
 - The names of Artisan commands must be in **kebab-case**. This ensures consistency and readability in the CLI.
 
-:::tip[Good]
+:::tip[good]
 ```bash
 php artisan users:create-local
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```bash
 php artisan usersCreateLocal
 ```
@@ -738,14 +738,14 @@ When processing multiple items:
 ```php
 public function handle(): void
 {
-    $this->info("Starting to process users...");
+    $this->info('Starting to process users...');
 
     User::all()->each(function ($user) {
         $this->info("Processing user {$user->id}...");
         // Process the user
     });
 
-    $this->comment("All users processed successfully.");
+    $this->comment('All users processed successfully.');
 }
 ```
 
@@ -755,14 +755,14 @@ public function handle(): void
 
 Public-facing URLs must use **kebab-case** to ensure consistency and readability.
 
-:::tip[Good]
+:::tip[good]
 ```
 https://msml.nl/about-us
 https://msml.nl/blog/software-development-tips
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```
 https://msml.nl/AboutUs
 https://msml.nl/blog/softwareDevelopmentTips
@@ -773,13 +773,13 @@ https://msml.nl/blog/softwareDevelopmentTips
 
 Prefer to use the route tuple notation whenever possible, as it is more explicit and type-safe.
 
-:::tip[Good]
+:::tip[good]
 ```php
-Route::get('about-us', [OpenSourceController::class, 'index']);
+Route::get('about-us', [AboutUsController::class, 'index']);
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 Route::get('about-us', 'OpenSourceController@index');
 ```
@@ -791,13 +791,13 @@ Route::get('about-us', 'OpenSourceController@index');
 
 Route names must use **camelCase** for consistency.
 
-:::tip[Good]
+:::tip[good]
 ```php
 Route::get('open-source', [OpenSourceController::class, 'index'])->name('openSource');
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 Route::get('open-source', [OpenSourceController::class, 'index'])->name('open-source');
 ```
@@ -809,14 +809,14 @@ Route::get('open-source', [OpenSourceController::class, 'index'])->name('open-so
 
 Always place the HTTP verb first in the route definition. This makes routes more scannable and consistent.
 
-:::tip[Good]
+:::tip[good]
 ```php
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('open-source', [OpenSourceController::class, 'index'])->name('openSource');
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 Route::name('home')->get('/', [HomeController::class, 'index']);
 Route::name('openSource')->get([OpenSourceController::class, 'index']);
@@ -829,15 +829,15 @@ Route::name('openSource')->get([OpenSourceController::class, 'index']);
 
 Use **camelCase** for route parameters.
 
-:::tip[Good]
+:::tip[good]
 ```php
-Route::get('news/{newsItem}', [NewsItemsController::class, 'index']);
+Route::get('news/{newsItem}', [NewsItemController::class, 'show']);
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
-Route::get('news/{news_item}', [NewsItemsController::class, 'index']);
+Route::get('news/{news_item}', [NewsItemController::class, 'show']);
 ```
 :::
 
@@ -847,14 +847,14 @@ Route::get('news/{news_item}', [NewsItemsController::class, 'index']);
 
 Routes should not start with a `/` unless the URL would otherwise be empty.
 
-:::tip[Good]
+:::tip[good]
 ```php
 Route::get('/', [HomeController::class, 'index']);
 Route::get('open-source', [OpenSourceController::class, 'index']);
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```php
 Route::get('', [HomeController::class, 'index']);
 Route::get('/open-source', [OpenSourceController::class, 'index']);
@@ -869,14 +869,14 @@ Route::get('/open-source', [OpenSourceController::class, 'index']);
 
 #### Examples
 
-:::tip[Good]
+:::tip[good]
 ```
 /api/users
 /api/posts
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```
 /api/user
 /api_posts
@@ -890,32 +890,32 @@ Route::get('/open-source', [OpenSourceController::class, 'index']);
 #### Limit Deep Nesting
 Deeply nested routes make APIs harder to manage and understand. Avoid nesting beyond two levels whenever possible. Flatten routes for simplicity.
 
-:::tip[Good]
+:::tip[good]
 ```
-/organizations/1/users
+/organisations/1/users
 /users/1/posts
 ```
 :::
 
-:::warning[Bad]
+:::warning[bad]
 ```
-/organizations/1/users/1/posts/1
+/organisations/1/users/1/posts/1
 ```
 :::
 
 #### Provide Context When Necessary
-Nesting can be used sparingly when it provides meaningful context between related resources. For example, when accessing all users of a specific organization, nesting `users` under `organizations` is appropriate.
+Nesting can be used sparingly when it provides meaningful context between related resources. For example, when accessing all users of a specific organization, nesting `users` under `organisations` is appropriate.
 
-:::tip[Good]
+:::tip[good]
 ```
-/organizations/1/users
+/organisations/1/users
 ```
 :::
 
 #### Flatten for Independence
 When operations on a resource are independent of its parent, flatten the route structure.
 
-:::tip[Good]
+:::tip[good]
 ```
 /users/1
 ```
@@ -945,7 +945,7 @@ Following these conventions ensures a clean, scalable, and consistent API design
 Controllers that control a resource must use the plural resource name.
 
 ```php
-class PostsController
+class PostController
 {
     // ...
 }
@@ -953,10 +953,10 @@ class PostsController
 
 Try to keep controllers simple and stick to the default CRUD keywords (`index`, `create`, `store`, `show`, `edit`, `update`, `destroy`). Extract a new controller if you need other actions.
 
-In the following example, we could have `PostsController@favorite`, and `PostsController@unfavorite`, or we could extract it to a separate `FavoritePostsController`.
+In the following example, we could have `PostController@favorite`, and `PostController@unfavorite`, or we could extract it to a separate `FavoritePostController`.
 
 ```php
-class PostsController
+class PostController
 {
     public function create()
     {
@@ -984,7 +984,7 @@ class PostsController
 Here we fall back to default CRUD words, `store` and `destroy`.
 
 ```php
-class FavoritePostsController
+class FavoritePostController
 {
     public function store(Post $post)
     {
