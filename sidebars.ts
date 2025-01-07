@@ -24,9 +24,18 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Code Guidelines',
       items: [
+        'guidelines/laravel-php',
         'guidelines/react-native',
-      ],
+        'guidelines/stylesheets',
+      ]
     },
+    {
+      type: 'category',
+      label: 'Version Control & Git',
+      items: [
+        'version-control',
+      ],
+    }
   ],
 };
 
