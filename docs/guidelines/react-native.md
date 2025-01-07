@@ -195,36 +195,13 @@ Use a consistent styling approach.
   ```jsx
   // Good
   const MyComponent = ({ title }) => {
-    return <h1>{title}</h1>;
+    return <Text>{title}</Text>;
   };
 
   // Avoid
   class MyComponent extends React.Component {
     render() {
-      return <h1>{this.props.title}</h1>;
-    }
-  }
-  ```
-- Components should be self-contained and reusable.
-- Avoid inline styles in components.
-- Document prop types with TypeScript for better type safety and IDE support.
-
-### Naming Conventions
-- Prefix shared components with `M` (e.g., `MButton`, `MHeader`).
-- Use PascalCase for component names.
-
-### Guidelines
-- Always use **functional components** instead of class components to leverage hooks and improve readability.
-  ```jsx
-  // Good
-  const MyComponent = ({ title }) => {
-    return <h1>{title}</h1>;
-  };
-
-  // Avoid
-  class MyComponent extends React.Component {
-    render() {
-      return <h1>{this.props.title}</h1>;
+      return <Text>{this.props.title}</Text>;
     }
   }
   ```
