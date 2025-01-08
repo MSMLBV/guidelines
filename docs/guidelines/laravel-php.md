@@ -726,8 +726,6 @@ public function handle(): void
 }
 ```
 
-
-
 ### Iterative Processing
 
 When processing multiple items:
@@ -735,6 +733,7 @@ When processing multiple items:
 - Display a summary upon completion.
 
 #### Example
+:::tip[good]
 ```php
 public function handle(): void
 {
@@ -748,6 +747,7 @@ public function handle(): void
     $this->comment('All users processed successfully.');
 }
 ```
+:::
 
 ## Attributes in Laravel Models
 
@@ -757,6 +757,7 @@ Starting from Laravel 9.19, you can use the `Attribute::make` class to define ac
 
 Here is an example of how to properly implement attributes using the `Attribute::make` class:
 
+:::tip[good]
 ```php
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
@@ -776,6 +777,7 @@ class User extends Model
         );
     }
 }
+:::
 ```
 
 #### Why This Approach?
@@ -787,6 +789,7 @@ class User extends Model
 
 Using methods like `getNameAttribute` and `setNameAttribute` is considered outdated. Here is an example of what you should **not** do:
 
+:::warning[bad]
 ```php
 class User extends Model
 {
@@ -809,6 +812,7 @@ class User extends Model
     }
 }
 ```
+:::
 
 #### Disadvantages of This Approach
 - **Less readable**: Logic is hidden in separate methods.
