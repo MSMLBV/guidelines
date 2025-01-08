@@ -749,6 +749,72 @@ public function handle(): void
 }
 ```
 
+## Attributes in Laravel Models
+
+Starting from Laravel 9.19, you can use the `Attribute::make` class to define accessors and mutators within your models. This is the **preferred** approach over older methods like `getNameAttribute` and `setNameAttribute`. The new method provides better structure, flexibility, and avoids naming conflicts.
+
+### Best Practice
+
+Here is an example of how to properly implement attributes using the `Attribute::make` class:
+
+```php
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+class User extends Model
+{
+    /**
+     * Get and set the user's full name.
+     */
+    protected function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => "{$this->first_name} {$this->last_name}",
+            set: fn (string $value) => [
+                'first_name' => explode(' ', $value)[0],
+                'last_name' => explode(' ', $value)[1] ?? '',
+            ],
+        );
+    }
+}
+```
+
+#### Why This Approach?
+- **Readable**: Clearly separates the `get` and `set` logic.
+- **Avoids conflicts**: Prevents naming conflicts with other methods in the model.
+- **Flexible**: Supports complex logic for both reading and writing data.
+
+### Avoid Legacy Methods
+
+Using methods like `getNameAttribute` and `setNameAttribute` is considered outdated. Here is an example of what you should **not** do:
+
+```php
+class User extends Model
+{
+    /**
+     * Get the user's full name (outdated method).
+     */
+    public function getFullNameAttribute(): string
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
+    /**
+     * Set the user's full name (outdated method).
+     */
+    public function setFullNameAttribute(string $value): void
+    {
+        $names = explode(' ', $value);
+        $this->attributes['first_name'] = $names[0];
+        $this->attributes['last_name'] = $names[1] ?? '';
+    }
+}
+```
+
+#### Disadvantages of This Approach
+- **Less readable**: Logic is hidden in separate methods.
+- **Naming conflicts**: Higher chance of conflicts with other methods.
+- **Less flexible**: Harder to combine and maintain.
+
 ## Routing
 
 ### URL Structure
