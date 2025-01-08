@@ -777,8 +777,8 @@ class User extends Model
         );
     }
 }
-:::
 ```
+:::
 
 #### Why This Approach?
 - **Readable**: Clearly separates the `get` and `set` logic.
