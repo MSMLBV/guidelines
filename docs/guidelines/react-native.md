@@ -146,10 +146,49 @@ Use a consistent styling approach.
       - radius
       - spacing
       - icons
+  - `App/Theme/Tokens/Fonts.js`
+    - Because design tokens for typography are very specific we use the Fonts.js for:
+      - The default font sizes.
+      - The default typography styling:
+        - muted
+        - bold
+        - semiBold
+        - default
+        - h1 t/m h5
+        - small
+      - Default component typography;
+        - header
+        - input
+        - list
 
 :::warning
 
-Only modify these files in consultation with the UI/UX designer.
+Only modify the design tokens in consultation with the UI/UX designer.
+
+:::
+
+### Styling rules
+
+- Always define styling in stylesheet components.
+- When styling is needed for global components (Navigation, TabStack) then using the `ApplicationStyle.js` create a specific object for this.
+
+:::tip[good]
+
+```js
+<View style={Style.container}>
+  <Text>MSML</Text>
+</View>
+```
+
+:::
+
+:::warning[bad]
+
+```js
+<View style={{ backgroundColor: 'red', marginleft: 10 }}>
+  <Text>MSML</Text>
+</View>
+```
 
 :::
 
@@ -176,23 +215,34 @@ Only modify these files in consultation with the UI/UX designer.
 
 - Always use **functional components** instead of class components to leverage hooks and improve readability.
 
-  ```jsx
-  // Good
-  const MyComponent = ({ title }) => {
-    return <Text>{title}</Text>;
-  };
+:::tip[good]
 
-  // Avoid
-  class MyComponent extends React.Component {
-    render() {
-      return <Text>{this.props.title}</Text>;
-    }
+```js
+export default function MBadge(props) {
+  return (
+    <View>
+      <Text>{props.title}</Text>
+    </View>
+  );
+}
+```
+
+:::
+
+:::warning[bad]
+
+```js
+export default class MyComponent extends React.Component {
+  render() {
+    return <Text>{this.props.title}</Text>;
   }
-  ```
+}
+```
+
+:::
 
 - Components should be self-contained and reusable.
 - Avoid inline styles in components.
-- Document prop types with TypeScript for better type safety and IDE support.
 
 ## Debugging
 
@@ -204,7 +254,6 @@ Use **Reactotron** for debugging during development.
 
 ### Common Scenarios
 
-- **UI Layout Issues**: Use the "Inspect" tool in Flipper to verify component alignment and styling.
 - **Network Failures**: Monitor API calls and responses using Reactotron.
 - **Crash Logs**: Check error messages in the console or use Sentry for tracking runtime exceptions.
 
