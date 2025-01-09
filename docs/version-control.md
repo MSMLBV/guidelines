@@ -46,7 +46,7 @@ Our projects utilize Git, primarily with repositories hosted on GitHub. With a s
 
 ### Branch Naming Conventions
 
-The naming conventions for branches are quite similar, however, the prefix depends on the issue type:
+The naming conventions for branches are quite similar; however, the prefix depends on the issue type:
 
 1. **Story**
    - Format: `feature/{ticketNumber}-kebab-case-description`
@@ -94,7 +94,7 @@ The workflow for branches depends on the issue type:
 1. Create a branch from the latest `release/vx.x.x` branch.
 2. Make changes related to the task.
 3. Push the branch to the remote repository.
-4. Create a draft pull request to merge the branch into `release/vx.x.x`.
+4. Create a draft pull request to merge the branch into the latest`release/vx.x.x` branch.
 5. Create a pull request to merge the branch into `master`
 6. Reviewers validate the changes to `master` and approve the pull request.
 
@@ -102,7 +102,7 @@ The workflow for branches depends on the issue type:
 1. Create a branch from the latest `release/vx.x.x` branch.
 2. Make changes related to the task.
 3. Push the branch to the remote repository.
-4. Create a pull request to merge the branch into `release/vx.x.x`.
+4. Create a pull request to merge the branch into the latest `release/vx.x.x` branch.
 5. Reviewers validate the changes and approve the pull request.
 
 **Maintenance / Security / Access**
