@@ -96,7 +96,7 @@ The workflow for branches depends on the issue type:
 3. Push the branch to the remote repository.
 4. Create a draft pull request to merge the branch into `release/vx.x.x`.
 5. Create a pull request to merge the branch into `master`
-5. Reviewers validate the changes to `master` and approve the pull request.
+6. Reviewers validate the changes to `master` and approve the pull request.
 
 **Bug**
 1. Create a branch from the latest `release/vx.x.x` branch.
