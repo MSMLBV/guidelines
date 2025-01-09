@@ -105,45 +105,6 @@ Use **React Navigation v6** for managing navigation.
 - Leverage deep linking for external navigation needs.
 - Use dynamic params for passing data between screens efficiently.
 
-### Advanced Configurations
-
-- **Nested Navigators**: Use nested navigators for modular app structure:
-  ```jsx
-  <Stack.Navigator>
-    <Stack.Screen name="Main" component={MainTabNavigator} />
-    <Stack.Screen name="Details" component={DetailsScreen} />
-  </Stack.Navigator>
-  ```
-- **Custom Transition Animations**: Define custom animations for screen transitions:
-  ```jsx
-  <Stack.Navigator
-    screenOptions={{
-      cardStyleInterpolator: ({ current, layouts }) => {
-        return {
-          cardStyle: {
-            transform: [
-              {
-                translateX: current.progress.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [layouts.screen.width, 0],
-                }),
-              },
-            ],
-          },
-        };
-      },
-    }}
-  >
-    <Stack.Screen name="Home" component={HomeScreen} />
-  </Stack.Navigator>
-  ```
-- **Conditional Navigation**: Redirect users based on state or props:
-  ```jsx
-  if (!isLoggedIn) {
-    navigation.replace('Login');
-  }
-  ```
-
 ### Guidelines
 
 - Structure navigation stacks to align with the app's flow.
@@ -257,3 +218,42 @@ Use **Reactotron** for debugging during development.
    ```
 
 This document serves as a comprehensive guide for React Native development at MSML. Refer to specific project requirements for any additional conventions or practices.
+
+### Advanced Configurations
+
+- **Nested Navigators**: Use nested navigators for modular app structure:
+  ```jsx
+  <Stack.Navigator>
+    <Stack.Screen name="Main" component={MainTabNavigator} />
+    <Stack.Screen name="Details" component={DetailsScreen} />
+  </Stack.Navigator>
+  ```
+- **Custom Transition Animations**: Define custom animations for screen transitions:
+  ```jsx
+  <Stack.Navigator
+    screenOptions={{
+      cardStyleInterpolator: ({ current, layouts }) => {
+        return {
+          cardStyle: {
+            transform: [
+              {
+                translateX: current.progress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [layouts.screen.width, 0],
+                }),
+              },
+            ],
+          },
+        };
+      },
+    }}
+  >
+    <Stack.Screen name="Home" component={HomeScreen} />
+  </Stack.Navigator>
+  ```
+- **Conditional Navigation**: Redirect users based on state or props:
+  ```jsx
+  if (!isLoggedIn) {
+    navigation.replace('Login');
+  }
+  ```
