@@ -1,10 +1,10 @@
 ---
-title: Stylesheets
+title: CSS/SCSS
 ---
 
-# Stylesheets
+# CSS/SCSS
 
-Welcome to the **Stylesheets Guidelines**! This document outlines the best practices and conventions for using css or SCSS at MSML.
+Welcome to the **SCSS/SCSS**! This document outlines the best practices and conventions for using css or SCSS at MSML.
 
 ## Terminology
 
