@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -15,27 +15,27 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docs: [
     {
-      type: 'category',
-      label: 'Getting Started',
+      type: "category",
+      label: "Getting Started",
       collapsed: false,
-      items: ['index'], 
+      items: ["index"],
     },
     {
-      type: 'category',
-      label: 'Code Guidelines',
+      type: "category",
+      label: "Code Guidelines",
       items: [
-        'guidelines/laravel-php',
-        'guidelines/react-native',
-        'guidelines/stylesheets',
-      ]
-    },
-    {
-      type: 'category',
-      label: 'Version Control & Git',
-      items: [
-        'version-control',
+        "guidelines/laravel-php",
+        "guidelines/react-native",
+        "guidelines/stylesheets",
+        "guidelines/bootstrapVue",
+        "guidelines/mantine",
       ],
-    }
+    },
+    {
+      type: "category",
+      label: "Version Control & Git",
+      items: ["version-control"],
+    },
   ],
 };
 
