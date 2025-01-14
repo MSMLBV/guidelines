@@ -10,8 +10,6 @@ Below are the most common ways to style elements in a MSML project.
    - Utilize Mantine's built-in props for quick and consistent styling.
    - These props allow you to configure padding, margin, colors, and more without writing custom CSS.
 
-   Example:
-
    ```javascript
    import { Button } from '@mantine/core';
 
@@ -23,8 +21,6 @@ Below are the most common ways to style elements in a MSML project.
 ### Using Global Overrides in the `theme.ts`
    - Centralize style customizations for the entire application in the theme file.
    - This ensures consistency and makes it easy to update styles globally.
-
-   Example:
 
    ```javascript
    import { MantineThemeOverride } from '@mantine/core';
@@ -41,8 +37,6 @@ Below are the most common ways to style elements in a MSML project.
 ### Using CSS Modules
    - Define scoped styles in `.module.css` files to avoid conflicts and maintain separation of concerns.
    - CSS Modules are particularly useful for custom components or styles that are not easily handled by Mantine props or theme overrides. 
-
-   Example:
 
    ```css
    /* layout.module.css */
@@ -106,7 +100,6 @@ Use the `Group` component when you want to align items in a horizontal or vertic
   - Useful for grouping elements like buttons or icons.
   - Automatically adds space between elements, which can be customized.
   
-Example:
   ```jsx
   import { Group, Button } from '@mantine/core';
 
@@ -130,7 +123,6 @@ Use the `Flex` component when you need a flexible layout, either in rows or colu
   - Easily control alignment with `align`, `justify`, and `direction` props.
   - Provides a more flexible approach than `Stack` for both rows and columns.
 
-Example:
   ```jsx
   import { Flex, Button } from '@mantine/core';
 
@@ -154,7 +146,6 @@ Use the `Grid` component when you need a 2D layout with multiple rows and column
   - Can set different column spans with `span` prop.
   - Highly customizable with `cols` (number of columns) and `spacing` between grid items.
 
-Example:
   ```jsx
   import { Grid, Col, Button } from '@mantine/core';
 

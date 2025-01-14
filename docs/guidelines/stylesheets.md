@@ -253,7 +253,6 @@ Nothing goes after the nested stuff. And the same order as above within the nest
 ### Maximum Nesting
 Three Levels Deep. Chances are, if you're deeper than that, you're writing a crappy selector. Crappy in that it's too reliant on HTML structure (fragile), overly specific (too powerful), and not very reusable (not useful).
 
-:::warning[Bad]
 ```css
 .weather {
   .cities {
@@ -263,7 +262,6 @@ Three Levels Deep. Chances are, if you're deeper than that, you're writing a cra
   }
 }
 ```
-:::
 
 ### Variables
 Use variables for elements that are used multiple times to define the brand and might be subject to change, good examples of those elements are colors, font-family, font-sizes etc.
