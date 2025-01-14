@@ -69,7 +69,7 @@ Mantine provides several layout components to help structure your UI effectively
 
 When to use each component:
 - **Use `Stack`** when you want a simple, vertically-aligned list with spacing.
-- **Use `Group`** when you want to align a small set of elements in a row or column with consistent spacing.
+- **Use `Group`** when you want to align horizontally a small set of elements in a row or column with consistent spacing.
 - **Use `Flex`** when you need to control the alignment and distribution of items in a flexible container, whether horizontally or vertically.
 - **Use `Grid`** when you need a more complex 2D layout with rows and columns.
 
