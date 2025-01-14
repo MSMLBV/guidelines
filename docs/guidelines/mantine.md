@@ -102,7 +102,7 @@ Use the `Group` component when you want to align items in a horizontal or vertic
 
 - **Use case**: When you need to group related elements together with consistent space between them. Perfect for buttons, inputs, or other inline components.
 - **Key Features**:
-  - Aligns children in a horizontal (default) or vertical layout.
+  - Aligns children in a horizontal layout.
   - Useful for grouping elements like buttons or icons.
   - Automatically adds space between elements, which can be customized.
   
