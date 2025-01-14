@@ -251,7 +251,7 @@ Nothing goes after the nested stuff. And the same order as above within the nest
 ```
 
 ### Maximum Nesting
-Three Levels Deep. Chances are, if you're deeper than that, you're writing a crappy selector. Crappy in that it's too reliant on HTML structure (fragile), overly specific (too powerful), and not very reusable (not useful).
+Three Levels Deep. If your selector goes beyond three levels, it is likely problematic. It may be too dependent on HTML structure (fragile), overly specific (too powerful), and lacking reusability (not useful).
 
 ```css
 .weather {
