@@ -4,7 +4,7 @@ title: CSS/SCSS
 
 # CSS/SCSS
 
-Welcome to the **SCSS/SCSS**! This document outlines the best practices and conventions for using CSS or SCSS at MSML.
+Welcome to the **CSS/SCSS**! This document outlines the best practices and conventions for using CSS or SCSS at MSML.
 
 ## Terminology
 
