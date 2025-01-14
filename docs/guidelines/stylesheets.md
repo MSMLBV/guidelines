@@ -105,7 +105,6 @@ The ability to nest media queries in CSS (and SCSS) means:
 1. You don't have to re-write the selector somewhere else which can be error prone
 2. The rules that you are overriding are very clear and obvious
 
-:::tip[Good]
 ```css
 .sidebar {
   float: right;
@@ -116,7 +115,6 @@ The ability to nest media queries in CSS (and SCSS) means:
   }
 }
 ```
-:::
 
 ### Mobile first approach
 When writing media queries, follow the mobile-first principle: write base styles for mobile devices first, then progressively enhance for larger screens using `min-width` queries.
