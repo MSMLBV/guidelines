@@ -1,6 +1,6 @@
 # Mantine
 
-This guide outlines best practices for writing and structuring styles in MSML Mantine projects, including our use of Mantine and how it integrates into our CSS workflow. Following these guidelines ensures maintainability, scalability, and consistency.
+This guide outlines best practices for writing and structuring styles in MSML Mantine projects, including our use of Mantine and how it integrates into our workflow. Following these guidelines ensures maintainability, scalability, and consistency.
 
 ## Styling Approaches
 
