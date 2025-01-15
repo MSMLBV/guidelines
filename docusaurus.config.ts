@@ -1,14 +1,14 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import dotenv from 'dotenv';
-dotenv.config()
+// import dotenv from 'dotenv';
+// dotenv.config()
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
   title: 'MSML',
-  tagline: 'MSML\'s coding standards and best practices',
+  tagline: "MSML's coding standards and best practices",
   favicon: 'img/favicon-32x32.png',
 
   // Set the production url of your site here
@@ -17,7 +17,7 @@ const config: Config = {
   baseUrl: '/guidelines/',
 
   // GitHub pages deployment config.
-  organizationName: 'msmlbv', 
+  organizationName: 'msmlbv',
   projectName: 'guidelines',
   deploymentBranch: 'gh-pages',
 
@@ -35,7 +35,7 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  
+
   themes: [],
 
   presets: [
@@ -44,14 +44,13 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
             return `https://github.com/MSMLBV/guidelines/tree/master/${versionDocsDirPath}/${docPath}`;
           },
         },
         theme: {
           customCss: './src/css/custom.css',
         },
-        
       } satisfies Preset.Options,
     ],
   ],
@@ -68,7 +67,7 @@ const config: Config = {
         {
           to: '/docs',
           label: 'Guidelines',
-          position: 'left', 
+          position: 'left',
         },
         {
           href: 'https://github.com/msmlbv/guidelines',
@@ -85,8 +84,8 @@ const config: Config = {
     },
     mermaid: {
       theme: {
-        light: 'neutral', 
-        dark: 'dark'
+        light: 'neutral',
+        dark: 'dark',
       },
     },
     algolia: {
@@ -95,14 +94,6 @@ const config: Config = {
       indexName: process.env.ALGOLIA_INDEX_NAME,
       contextualSearch: true,
     },
-
-    algolia: {
-      appId: process.env.ALGOLIA_APP_ID,
-      apiKey: process.env.ALGOLIA_API_KEY,
-      indexName: process.env.ALGOLIA_INDEX_NAME,
-      contextualSearch: true,
-    },
-    
   } satisfies Preset.ThemeConfig,
 };
 
