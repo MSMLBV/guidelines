@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Getting Started',
       collapsed: false,
-      items: ['index'], 
+      items: ['index'],
     },
     {
       type: 'category',
@@ -27,15 +27,15 @@ const sidebars: SidebarsConfig = {
         'guidelines/laravel-php',
         'guidelines/react-native',
         'guidelines/stylesheets',
-      ]
+        'guidelines/bootstrapVue',
+        'guidelines/mantine',
+      ],
     },
     {
       type: 'category',
       label: 'Version Control & Git',
-      items: [
-        'version-control',
-      ],
-    }
+      items: ['version-control'],
+    },
   ],
 };
 
