@@ -11,30 +11,30 @@ Our projects utilize Git, primarily with repositories hosted on GitHub. With a s
 ### Site Repositories
 - **Naming Rule**: Use the main naked domain name as the repository name, lowercased.
 - **Examples**:
-:::warning[Bad]
+:::warning[bad]
   - **Bad**: `https://www.msml.nl`, `www.msml.nl`, `Msml.nl`
 :::
-:::tip[Good]
+:::tip[good]
   - **Good**: `msml.nl`
 :::
 
 ### Subdomain Sites
 - **Naming Rule**: Include the subdomain in the repository name.
 - **Examples**:
-:::warning[Bad]
+:::warning[bad]
   - **Bad**: `msml.nl-guidelines`
 :::
-:::tip[Good]
+:::tip[good]
   - **Good**: `guidelines.msml.nl`
 :::
 
 ### Non-Site Repositories
 - **Naming Rule**: Use kebab-case for repository names.
 - **Examples**:
-:::warning[Bad]
+:::warning[bad]
   - **Bad**: `LaravelBackup`, `Spoon`
 :::
-:::tip[Good]
+:::tip[good]
   - **Good**: `laravel-backup`, `spoon`
 :::
 
@@ -150,14 +150,14 @@ Our projects utilize Git, primarily with repositories hosted on GitHub. With a s
 - Write commit messages in **present tense**.
 
 **Good Examples:**
-:::tip[Good]
+:::tip[good]
 - `MSML-392 Fix cart count on home`
 - `MSML-123 Add user profile page`
 - `MSMLS-456 Resolve crash on login`
 :::
 
 **Bad Examples:**
-:::warning[Bad]
+:::warning[bad]
 - `Fixed issue`
 - `Update`
 - `Miscellaneous changes`
