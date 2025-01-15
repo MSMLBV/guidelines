@@ -94,7 +94,7 @@ The workflow for branches depends on the issue type:
 1. Create a branch from the latest `release/vx.x.x` branch.
 2. Make changes related to the task.
 3. Push the branch to the remote repository.
-4. Create a draft pull request to merge the branch into the latest`release/vx.x.x` branch.
+4. Create a draft pull request to merge the branch into the latest `release/vx.x.x` branch.
 5. Create a pull request to merge the branch into `master`
 6. Reviewers validate the changes to `master` and approve the pull request.
 
@@ -104,6 +104,7 @@ The workflow for branches depends on the issue type:
 3. Push the branch to the remote repository.
 4. Create a pull request to merge the branch into the latest `release/vx.x.x` branch.
 5. Reviewers validate the changes and approve the pull request.
+6. Do a backmerge by creating a pull request from the latest `release/vx.x.x` branch to the master branch.
 
 **Maintenance / Security / Access**
 - If the issue is part of a sprint, follow the `Story` workflow.
@@ -142,7 +143,7 @@ The workflow for branches depends on the issue type:
 - Reviewed by at least one medior developer and one additional reviewer.
 
 **Pull Request Tips:**
-  - Format: `{ticketNumber} A readable and concise descriotion`
+  - Format: `{ticketNumber} A readable and concise description`
    - **Example**: `MSML-456 Update cart functionality`
  - Ensure all CI checks pass.
  - Review it yourself.
